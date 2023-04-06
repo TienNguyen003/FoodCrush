@@ -7,7 +7,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
         <Test></Test>
-        <App></App>
         <h2>Tien Nguyen</h2>
     </>,
 );
