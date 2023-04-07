@@ -1,11 +1,12 @@
 import classNames from 'classnames/bind';
 import styles from './header.module.scss';
 import { SearchIcon } from '~/component/Icons/icon';
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
+import Apicontent from '~/component/component/Apis/ApiContent/apicontent';
 
 const cx = classNames.bind(styles);
 
-function Header({ parent }) {
+function Header() {
     const [valueInput, setValueInput] = useState('');
 
     const buttonRef = useRef();
@@ -16,14 +17,15 @@ function Header({ parent }) {
             inputRef.current.value === ''
                 ? e.preventDefault()
                 : setValueInput(inputRef.current.value);
+            fetch(
+                `https://www.themealdb.com/api/json/v1/1/filter.php?a=${inputRef.current.value}`,
+            )
+                .then((res) => res.json())
+                .then((data) => {
+                    dataResult = data.meals;
+                });
         };
     }, []);
-
-    const sendData = useCallback(() => {
-        return () => {
-            parent(valueInput);
-        };
-    });
 
     return (
         <div className={cx('header')}>
@@ -43,17 +45,16 @@ function Header({ parent }) {
                         className={cx('search-input')}
                         placeholder="For example: American..."
                     />
-                    <div
-                        className={cx('icon')}
-                        ref={buttonRef}
-                        onClick={sendData()}
-                    >
+                    <div className={cx('icon')} ref={buttonRef}>
                         <SearchIcon className={cx('icon-search')} />
                     </div>
                 </div>
             </div>
+
+            <Apicontent dataValue={valueInput} />
         </div>
     );
 }
 
+export let dataResult;
 export default memo(Header);
