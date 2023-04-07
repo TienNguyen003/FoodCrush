@@ -1,4 +1,5 @@
 export const SearchIcon = ({
+    ref,
     className,
     width = '2.3rem',
     height = '2.3rem',

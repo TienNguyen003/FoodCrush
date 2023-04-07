@@ -1,6 +1,8 @@
 import classNames from 'classnames/bind';
-import styles from './homeMeals.module.scss';
+
 import Categories from '../Apis/ApiCategories/categorie';
+import styles from './homeMeals.module.scss';
+import { memo } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -10,7 +12,7 @@ function HomeMeals() {
             <div className={cx('famous-quote')}>
                 <div className={cx('famous-people-oli')}>
                     <blockquote className="jamie">
-                    “Real food doesn't have ingredients, real food is
+                        “Real food doesn't have ingredients, real food is
                         ingredients.”
                         <br />
                         <cite>Jamie Oliver</cite>
@@ -41,4 +43,4 @@ function HomeMeals() {
     );
 }
 
-export default HomeMeals;
+export default memo(HomeMeals);
