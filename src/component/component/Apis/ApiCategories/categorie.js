@@ -29,10 +29,6 @@ function Categories() {
                             src={item.strCategoryThumb}
                             alt=""
                         />
-                        <p className={cx('name')}>{item.strCategory}</p>
-                        <p className={cx('desc')}>
-                            {item.strCategoryDescription.slice(0, 339)}
-                        </p>
                     </div>
                 );
             })}
