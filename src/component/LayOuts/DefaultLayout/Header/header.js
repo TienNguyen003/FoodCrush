@@ -1,31 +1,28 @@
 import classNames from 'classnames/bind';
-import styles from './header.module.scss';
-import { SearchIcon } from '~/component/Icons/icon';
 import { memo, useEffect, useRef, useState } from 'react';
-import Apicontent from '~/component/component/Apis/ApiContent/apicontent';
+
+import Debounce from './debounce';
+import { SearchIcon } from '~/component/Icons/icon';
+import styles from './header.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Header() {
-    const [valueInput, setValueInput] = useState('');
+function Header({ parent }) {
+    const [input, setInput] = useState('');
+    const [inputValue, setInputValue] = useState('');
 
+    let debounce = Debounce(input, 1000);
     const buttonRef = useRef();
-    const inputRef = useRef();
+
+    const sendData = () => {
+        parent(debounce);
+    }
 
     useEffect(() => {
-        buttonRef.current.onclick = (e) => {
-            inputRef.current.value === ''
-                ? e.preventDefault()
-                : setValueInput(inputRef.current.value);
-            fetch(
-                `https://www.themealdb.com/api/json/v1/1/filter.php?a=${inputRef.current.value}`,
-            )
-                .then((res) => res.json())
-                .then((data) => {
-                    dataResult = data.meals;
-                });
-        };
-    }, []);
+            buttonRef.current.onclick = () => {
+                setInputValue(debounce);
+            };
+    }, [debounce]);
 
     return (
         <div className={cx('header')}>
@@ -40,21 +37,22 @@ function Header() {
             <div className={cx('search-meals')}>
                 <div className={cx('search')}>
                     <input
-                        ref={inputRef}
+                        onChange={(e) => setInput(e.target.value)}
                         type="text"
                         className={cx('search-input')}
                         placeholder="For example: American..."
                     />
-                    <div className={cx('icon')} ref={buttonRef}>
+                    <div
+                        className={cx('icon')}
+                        ref={buttonRef}
+                        onClick={sendData}
+                    >
                         <SearchIcon className={cx('icon-search')} />
                     </div>
                 </div>
             </div>
-
-            <Apicontent dataValue={valueInput} />
         </div>
     );
 }
 
-export let dataResult;
 export default memo(Header);

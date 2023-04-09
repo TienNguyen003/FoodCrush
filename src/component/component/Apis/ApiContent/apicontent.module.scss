@@ -1,6 +1,5 @@
-.content{
+.content {
     margin: 0 100px;
-    display: none;
 }
 .meal {
     display: flex;
@@ -54,4 +53,28 @@
 }
 .recipe-btn:hover {
     background: #b54507;
+}
+
+/* meal details */
+.meal-details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background: #b54507;
+    border-radius: 1rem;
+    height: 90%;
+    overflow-y: auto;
+    display: none;
+    padding: 2rem 0;
+    text-align: center;
+}
+.meal-details::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+}
+.showRecipe {
+    display: block;
+    width: 700px;
 }
