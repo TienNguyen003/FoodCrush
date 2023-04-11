@@ -7,48 +7,46 @@ import styles from './notemeal.module.scss';
 
 const cx = classNames.bind(styles);
 
-function NoteMeal({ data, className }) {
-    const [dataResult, setDataResult] = useState();
+function NoteMeal() {
+    const [dataResult, setDataResult] = useState(() => {});
 
     const noteMeal = useRef();
     const closeNoteRef = useRef();
 
     useEffect(() => {
-        if (data.length !== 0) {
-            setDataResult(data);
-        }
-        // closeNoteRef.current.onclick = () => {
-        //     console.log(noteMeal);
-        //     noteMeal.current.classList.add('notemeal_hidden__gZHK7');
-        // };
-    }, [data]);
+        const dataLocal = JSON.parse(localStorage.getItem('dataMeals'))
+            ? JSON.parse(localStorage.getItem('dataMeals'))
+            : [];
+        console.log(dataLocal);
+    }, []);
 
-    return (
-        <div className={cx('note-meal', className)} ref={noteMeal}>
-            <div className={cx('close-note')} ref={closeNoteRef}>
-                <FontAwesomeIcon icon={faClose} />
-            </div>
+    return null;
+    // (
+    // <div ref={noteMeal}>
+    //     <div className={cx('close-note')} ref={closeNoteRef}>
+    //         <FontAwesomeIcon icon={faClose} />
+    //     </div>
 
-            {dataResult !== undefined && (
-                <div className={cx('meal')}>
-                    <img
-                        className={cx('img-meal')}
-                        src={dataResult[0].strMealThumb}
-                        alt=""
-                    />
-                    <div className={cx('area')}>
-                        <p className={cx('name-meal')}>
-                            {dataResult[0].strMeal}
-                        </p>
-                        <p className={cx('name-meal')}>
-                            {dataResult[0].strArea}
-                        </p>
-                    </div>
-                    <FontAwesomeIcon icon={faClose} />
-                </div>
-            )}
-        </div>
-    );
+    //     {dataResult !== undefined && (
+    //         <div className={cx('meal')}>
+    //             <img
+    //                 className={cx('img-meal')}
+    //                 src={dataResult[0].strMealThumb}
+    //                 alt=""
+    //             />
+    //             <div className={cx('area')}>
+    //                 <p className={cx('name-meal')}>
+    //                     {dataResult[0].strMeal}
+    //                 </p>
+    //                 <p className={cx('name-meal')}>
+    //                     {dataResult[0].strArea}
+    //                 </p>
+    //             </div>
+    //             <FontAwesomeIcon icon={faClose} />
+    //         </div>
+    //     )}
+    // </div>
+    // );
 }
 
 export default memo(NoteMeal);

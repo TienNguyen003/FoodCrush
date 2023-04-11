@@ -12,15 +12,17 @@ const cx = classNames.bind(styles);
 
 function ApiContent({ value }) {
     const [dataResult, setDataResult] = useState([]);
-    const [mealValue, setMealValue] = useState([]);
 
     const mealRef = useRef();
     const buttonRef = useRef();
     const detailContent = useRef();
     const buttonClose = useRef();
-    const flagRef = useRef(false);
+    const NoteRef = useRef();
 
     useEffect(() => {
+        const setDataLocal = JSON.parse(localStorage.getItem('mealsData'))
+            ? JSON.parse(localStorage.getItem('mealsData'))
+            : [];
         const myInterval = setInterval(() => {
             if (value !== '') {
                 fetch(
@@ -70,9 +72,15 @@ function ApiContent({ value }) {
                                         )
                                             .then((res) => res.json())
                                             .then((data) => {
-                                                setMealValue(data.meals);
+                                                setDataLocal.push(data.meals);
+                                                localStorage.setItem(
+                                                    'dataMeals',
+                                                    JSON.stringify(
+                                                        setDataLocal,
+                                                    ),
+                                                );
                                             });
-                                        flagRef.current = true;
+                                        NoteRef.current.style.display = 'block';
                                     }
                                 };
                             }, 1.5);
@@ -80,7 +88,6 @@ function ApiContent({ value }) {
                                 return clearInterval(interval2);
                             }, 2);
                         }
-                        else{alert('co cl ma tim')}
                     });
             }
         }, 1);
@@ -167,7 +174,9 @@ function ApiContent({ value }) {
                     </div>
                 </>
             )}
-            {flagRef.current === true && <NoteMeal data={mealValue} />}
+            <div ref={NoteRef} className={cx('note-meal')}>
+                <NoteMeal />
+            </div>
         </div>
     );
 }
