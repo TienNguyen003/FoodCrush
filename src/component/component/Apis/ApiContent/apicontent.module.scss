@@ -37,7 +37,7 @@
     -webkit-box-orient: vertical;
     text-align: center;
 }
-.recipe-btn {
+.recipe-btn, .add-btn {
     text-decoration: none;
     color: #fff;
     background: #d65108;
@@ -45,7 +45,7 @@
     font-size: 1.6rem;
     padding: 0.75rem 0;
     display: block;
-    width: 175px;
+    width: 100px;
     margin: 1rem auto;
     border-radius: 2rem;
     text-align: center;
@@ -77,4 +77,7 @@
 .showRecipe {
     display: block;
     width: 700px;
+}
+.button{
+    display: flex;
 }
