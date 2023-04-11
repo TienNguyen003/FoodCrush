@@ -6,6 +6,7 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './apicontent.module.scss';
 import './apicontent.css';
+import NoteMeal from '../../NoteMeal/notemeal';
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +18,7 @@ function ApiContent({ value }) {
     const buttonRef = useRef();
     const detailContent = useRef();
     const buttonClose = useRef();
+    const flagRef = useRef(false);
 
     useEffect(() => {
         const myInterval = setInterval(() => {
@@ -26,37 +28,59 @@ function ApiContent({ value }) {
                 )
                     .then((res) => res.json())
                     .then((data) => {
-                        setDataResult(data.meals);
-                        const interval2 = setInterval(() => {
-                            buttonRef.current.onclick = (e) => {
-                                e.preventDefault();
-                                if (
-                                    e.target.classList.contains(
-                                        'apicontent_recipe-btn__fpqeU',
-                                    )
-                                ) {
-                                    mealRef.current.classList.add(
-                                        'apicontent_showRecipe__qiQOH',
-                                    );
-                                    callApi(e.target);
-                                    buttonClose.current.onclick = () => {
-                                        mealRef.current.classList.remove(
+                        if (data.meals !== null) {
+                            setDataResult(data.meals);
+                            const interval2 = setInterval(() => {
+                                buttonRef.current.onclick = (e) => {
+                                    e.preventDefault();
+                                    if (
+                                        e.target.classList.contains(
+                                            'apicontent_recipe-btn__fpqeU',
+                                        )
+                                    ) {
+                                        mealRef.current.classList.add(
                                             'apicontent_showRecipe__qiQOH',
                                         );
-                                    };
-                                }
-                                if (
-                                    e.target.classList.contains(
-                                        'apicontent_add-btn__dlMIf',
-                                    )
-                                ) {
-                                    callApi(e.target);
-                                }
-                            };
-                        }, 1.5);
-                        setTimeout(() => {
-                            return clearInterval(interval2);
-                        }, 2);
+                                        let mealItem =
+                                            e.target.parentElement.parentElement
+                                                .parentElement;
+                                        fetch(
+                                            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.index}`,
+                                        )
+                                            .then((res) => res.json())
+                                            .then((data) => {
+                                                watchYt(data.meals);
+                                            });
+                                        buttonClose.current.onclick = () => {
+                                            mealRef.current.classList.remove(
+                                                'apicontent_showRecipe__qiQOH',
+                                            );
+                                        };
+                                    }
+                                    if (
+                                        e.target.classList.contains(
+                                            'apicontent_add-btn__dlMIf',
+                                        )
+                                    ) {
+                                        let mealItem =
+                                            e.target.parentElement.parentElement
+                                                .parentElement;
+                                        fetch(
+                                            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.index}`,
+                                        )
+                                            .then((res) => res.json())
+                                            .then((data) => {
+                                                setMealValue(data.meals);
+                                            });
+                                        flagRef.current = true;
+                                    }
+                                };
+                            }, 1.5);
+                            setTimeout(() => {
+                                return clearInterval(interval2);
+                            }, 2);
+                        }
+                        else{alert('co cl ma tim')}
                     });
             }
         }, 1);
@@ -64,19 +88,7 @@ function ApiContent({ value }) {
         setTimeout(() => {
             return clearInterval(myInterval);
         }, 2);
-    }, [mealValue, value]);
-
-    function callApi(e) {
-        let mealItem = e.parentElement.parentElement.parentElement;
-        fetch(
-            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.index}`,
-        )
-            .then((res) => res.json())
-            .then((data) => {
-                watchYt(data.meals);
-                setMealValue(data.meals);
-            });
-    }
+    }, [value]);
 
     function watchYt(meal) {
         meal = meal[0];
@@ -100,7 +112,6 @@ function ApiContent({ value }) {
 
         detailContent.current.innerHTML = html;
     }
-
     return (
         <div className={cx('content')}>
             {dataResult.length !== 0 && (
@@ -156,8 +167,7 @@ function ApiContent({ value }) {
                     </div>
                 </>
             )}
-            <div className={cx('note-meal')}>
-            </div>
+            {flagRef.current === true && <NoteMeal data={mealValue} />}
         </div>
     );
 }
