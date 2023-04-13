@@ -4,6 +4,7 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './notemeal.module.scss';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -19,17 +20,17 @@ function NoteMeal(props) {
                 ? JSON.parse(localStorage.getItem('dataMeals'))
                 : [];
             setDataResult(dataLocal);
-            const buttonDelete = document.querySelectorAll('.icon-delete-meal');
-            buttonDelete.forEach((deletebtn) => {
-                deletebtn.onclick = () => {
-                    dataLocal.forEach((data, index) => {
-                        if (data[0].idMeal === deletebtn.parentElement.dataset.index) {
-                            dataLocal.splice(index, 1);
-                            localStorage.setItem('dataMeals', JSON.stringify(dataLocal));
-                        }
-                    });
-                };
-            });
+            // const buttonDelete = document.querySelectorAll('.icon-delete-meal');
+            // buttonDelete.forEach((deletebtn) => {
+            //     deletebtn.onclick = () => {
+            //         dataLocal.forEach((data, index) => {
+            //             if (data[0].idMeal === deletebtn.parentElement.dataset.index) {
+            //                 dataLocal.splice(index, 1);
+            //                 localStorage.setItem('dataMeals', JSON.stringify(dataLocal));
+            //             }
+            //         });
+            //     };
+            // });
         }, 1000);
         closeNoteRef.current.onclick = () => {
             noteMeal.current.style.display = 'none';
@@ -48,7 +49,12 @@ function NoteMeal(props) {
                         <div className={cx('meal')} key={index} data-index={item[0].idMeal}>
                             <img className={cx('img-meal')} src={item[0].strMealThumb} alt="" />
                             <div className={cx('area')}>
-                                <p className={cx('name-meal')}>{item[0].strMeal}</p>
+                                <Link
+                                    to={`/@${item[0].idMeal}`}
+                                    className={cx('name-meal', 'name-detail')}
+                                >
+                                    {item[0].strMeal}
+                                </Link>
                                 <p className={cx('name-meal')}>{item[0].strArea}</p>
                             </div>
                             <FontAwesomeIcon icon={faClose} className={cx('icon-delete-meal')} />

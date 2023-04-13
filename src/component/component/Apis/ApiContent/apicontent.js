@@ -4,9 +4,9 @@ import { memo, useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 
+import NoteMeal from '../../NoteMeal/notemeal';
 import styles from './apicontent.module.scss';
 import './apicontent.css';
-import NoteMeal from '../../NoteMeal/notemeal';
 
 const cx = classNames.bind(styles);
 const setDataLocal = JSON.parse(localStorage.getItem('mealsData'))

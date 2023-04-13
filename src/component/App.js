@@ -22,10 +22,7 @@ function AppMeals() {
     };
 
     function myFunction() {
-        if (
-            document.body.scrollTop > 400 ||
-            document.documentElement.scrollTop > 400
-        ) {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
             iconRef.current.style.display = 'flex';
             iconRef.current.onclick = () => {
                 window.scrollTo({
