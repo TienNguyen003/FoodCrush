@@ -1,4 +1,27 @@
-.close-note{
+.note-meals {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    width: 400px;
+    display: none;
+    overflow: auto;
+    background-color: #cccccca1;
+    animation: leftWidth 0.8s linear;
+}
+.note-meals::-webkit-scrollbar {
+    width: 0 !important;
+}
+@keyframes leftWidth {
+    0% {
+        right: -400px;
+    }
+    100% {
+        right: 0;
+    }
+}
+.close-note {
     float: right;
     cursor: pointer;
 }
@@ -7,6 +30,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 20px;
     cursor: pointer;
 }
 .img-meal {
@@ -24,6 +48,6 @@
     }
 }
 
-.hidden{
+.hidden {
     display: none;
 }

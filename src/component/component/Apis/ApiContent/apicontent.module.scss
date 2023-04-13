@@ -82,24 +82,3 @@
 .button {
     display: flex;
 }
-
-// note meal
-.note-meal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    padding: 20px;
-    width: 400px;
-    display: none;
-    background-color: #cccccca1;
-    animation: leftWidth 0.5s linear;
-}
-@keyframes leftWidth {
-    0% {
-        right: -400px;
-    }
-    100% {
-        right: 0;
-    }
-}

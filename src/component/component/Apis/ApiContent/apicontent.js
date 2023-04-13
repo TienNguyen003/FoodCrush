@@ -9,6 +9,10 @@ import './apicontent.css';
 import NoteMeal from '../../NoteMeal/notemeal';
 
 const cx = classNames.bind(styles);
+const setDataLocal = JSON.parse(localStorage.getItem('mealsData'))
+    ? JSON.parse(localStorage.getItem('mealsData'))
+    : [];
+let array = {};
 
 function ApiContent({ value }) {
     const [dataResult, setDataResult] = useState([]);
@@ -20,32 +24,48 @@ function ApiContent({ value }) {
     const NoteRef = useRef();
 
     useEffect(() => {
-        const setDataLocal = JSON.parse(localStorage.getItem('mealsData'))
-            ? JSON.parse(localStorage.getItem('mealsData'))
-            : [];
         const myInterval = setInterval(() => {
             if (value !== '') {
-                fetch(
-                    `https://www.themealdb.com/api/json/v1/1/filter.php?a=${value}`,
-                )
+                fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${value}`)
                     .then((res) => res.json())
                     .then((data) => {
                         if (data.meals !== null) {
                             setDataResult(data.meals);
                             const interval2 = setInterval(() => {
+                                const buttonAdd = document.querySelectorAll(
+                                    '.apicontent_add-btn__qXjy7',
+                                );
+                                buttonAdd.forEach((button, index) => {
+                                    array[index] = 0;
+                                    button.onclick = () => {
+                                        array[index]++;
+                                        fetch(
+                                            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${button.dataset.oder}`,
+                                        )
+                                            .then((res) => res.json())
+                                            .then((data) => {
+                                                if (array[index] < 2) setDataLocal.push(data.meals);
+
+                                                localStorage.setItem(
+                                                    'dataMeals',
+                                                    JSON.stringify(setDataLocal),
+                                                );
+                                            });
+                                        NoteRef.current.querySelector(
+                                            '.notemeal_note-meals__Ho-h5',
+                                        ).style.display = 'block';
+                                    };
+                                });
                                 buttonRef.current.onclick = (e) => {
                                     e.preventDefault();
                                     if (
-                                        e.target.classList.contains(
-                                            'apicontent_recipe-btn__fpqeU',
-                                        )
+                                        e.target.classList.contains('apicontent_recipe-btn__907mS')
                                     ) {
                                         mealRef.current.classList.add(
-                                            'apicontent_showRecipe__qiQOH',
+                                            'apicontent_showRecipe__jyMi5',
                                         );
                                         let mealItem =
-                                            e.target.parentElement.parentElement
-                                                .parentElement;
+                                            e.target.parentElement.parentElement.parentElement;
                                         fetch(
                                             `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.index}`,
                                         )
@@ -55,32 +75,9 @@ function ApiContent({ value }) {
                                             });
                                         buttonClose.current.onclick = () => {
                                             mealRef.current.classList.remove(
-                                                'apicontent_showRecipe__qiQOH',
+                                                'apicontent_showRecipe__jyMi5',
                                             );
                                         };
-                                    }
-                                    if (
-                                        e.target.classList.contains(
-                                            'apicontent_add-btn__dlMIf',
-                                        )
-                                    ) {
-                                        let mealItem =
-                                            e.target.parentElement.parentElement
-                                                .parentElement;
-                                        fetch(
-                                            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.index}`,
-                                        )
-                                            .then((res) => res.json())
-                                            .then((data) => {
-                                                setDataLocal.push(data.meals);
-                                                localStorage.setItem(
-                                                    'dataMeals',
-                                                    JSON.stringify(
-                                                        setDataLocal,
-                                                    ),
-                                                );
-                                            });
-                                        NoteRef.current.style.display = 'block';
                                     }
                                 };
                             }, 1.5);
@@ -119,6 +116,7 @@ function ApiContent({ value }) {
 
         detailContent.current.innerHTML = html;
     }
+
     return (
         <div className={cx('content')}>
             {dataResult.length !== 0 && (
@@ -142,10 +140,8 @@ function ApiContent({ value }) {
                                     <div className={cx('meal-name')}>
                                         <h3>{item.strMeal}</h3>
                                         <div className={cx('button')}>
-                                            <a className={cx('recipe-btn')}>
-                                                Get Recipe
-                                            </a>
-                                            <a className={cx('add-btn')}>
+                                            <a className={cx('recipe-btn')}>Get Recipe</a>
+                                            <a className={cx('add-btn')} data-oder={item.idMeal}>
                                                 Add Note
                                             </a>
                                         </div>
@@ -167,10 +163,7 @@ function ApiContent({ value }) {
                             </button>
                         </div>
 
-                        <div
-                            className={cx('meal-details-content')}
-                            ref={detailContent}
-                        ></div>
+                        <div className={cx('meal-details-content')} ref={detailContent}></div>
                     </div>
                 </>
             )}
