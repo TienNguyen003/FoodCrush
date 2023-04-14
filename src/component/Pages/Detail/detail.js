@@ -1,9 +1,25 @@
 import classNames from 'classnames/bind';
 import styles from './detail.module.scss';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Detail() {
+    const [dataAPI, setDataAPI] = useState([]);
+
+    let currentUrl = window.location.href;
+    let newURL;
+    if (currentUrl.includes('http://localhost:3001/@')) {
+        newURL = currentUrl.replace('http://localhost:3001/@', '');
+    }
+    useEffect(() => {
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${newURL}`)
+            .then((res) => res.json())
+            .then((data) => setDataAPI(data.meals[0]));
+    }, [newURL]);
+    
+    console.log(dataAPI);
+
     const arr = [
         'chicken',
         'chicken1',
@@ -19,21 +35,13 @@ function Detail() {
 
     return (
         <div className={cx('detail-meal')}>
-            <img
-                className={cx('meal-image')}
-                src="https://i.ytimg.com/vi/C1L5K4TBxDE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCoHQUNt5_KM-KPdoN6n_p-5zK90A"
-                alt=""
-            />
+            <div className={cx('info-meal')}>
+                <h3>{dataAPI.strMeal}</h3>
+                <img className={cx('meal-image')} src={dataAPI.strMealThumb} alt="" />
+            </div>
             <div className={cx('meal-recipe')}>
                 <h3>Công thức nấu ăn</h3>
-                <div className={cx('meal-desc')}>
-                    Mix Sauce in small bowl. Mince garlic into wok with oil. Place over high heat,
-                    when hot, add chicken and Chinese broccoli stems, cook until chicken is light
-                    golden. Push to the side of the wok, crack egg in and scramble. Don't worry if
-                    it sticks to the bottom of the wok - it will char and which adds authentic
-                    flavour. Add noodles, Chinese broccoli leaves and sauce. Gently mix together
-                    until the noodles are stained dark and leaves are wilted. Serve immediately!
-                </div>
+                <div className={cx('meal-desc')}>{dataAPI.strInstructions}</div>
                 <div className={cx('meal-ingredient')}>
                     {arr.map((item, index) => {
                         return (

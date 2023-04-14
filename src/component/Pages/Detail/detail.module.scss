@@ -15,9 +15,14 @@
         box-shadow: 0 4px 28px -12px rgba(0, 0, 0, 0.79);
     }
 }
-.meal-image {
-    align-self: center;
+.info-meal{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     margin-right: 30px;
+    width: 350px;
+}
+.meal-image {
     width: 350px;
     height: 250px;
     border-radius: 10px;
@@ -30,11 +35,11 @@
 }
 .meal-recipe {
     flex: 1;
+    height: 100%;
 }
 .meal-ingredient {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 20px;
     height: 100px;
 }
