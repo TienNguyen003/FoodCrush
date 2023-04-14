@@ -10,26 +10,24 @@ function HomeMeals() {
     return (
         <div className={cx('content')}>
             <div className={cx('famous-quote')}>
-                <div className={cx('famous-people-oli')}>
+                <div className={cx('famous-people-oli', 'animate__animated animate__swing')}>
                     <blockquote className="jamie">
-                        “Real food doesn't have ingredients, real food is
-                        ingredients.”
+                        “Real food doesn't have ingredients, real food is ingredients.”
                         <br />
                         <cite>Jamie Oliver</cite>
                     </blockquote>
                 </div>
-                <div className={cx('famous-people-ram')}>
+                <div className={cx('famous-people-ram', 'animate__animated animate__swing')}>
                     <blockquote className="jamie">
-                        “There is nothing better than traveling the world and
-                        enjoying the best food.”
+                        “There is nothing better than traveling the world and enjoying the best
+                        food.”
                         <br />
                         <cite>Gordon Ramsay</cite>
                     </blockquote>
                 </div>
-                <div className={cx('famous-people-flay')}>
+                <div className={cx('famous-people-flay', 'animate__animated animate__swing')}>
                     <blockquote className="jamie">
-                        “The greatest gift of a chef is the satisfaction of the
-                        eater.”
+                        “The greatest gift of a chef is the satisfaction of the eater.”
                         <br />
                         <cite>Bobby Flay</cite>
                     </blockquote>

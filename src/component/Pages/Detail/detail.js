@@ -1,6 +1,8 @@
 import classNames from 'classnames/bind';
-import styles from './detail.module.scss';
 import { useEffect, useState } from 'react';
+
+import 'animate.css';
+import styles from './detail.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -35,36 +37,50 @@ function Detail() {
     }, [newURL]);
 
     return (
-        <div className={cx('detail-meal')}>
+        <div className={cx('detail-meal', 'animate__animated animate__jackInTheBox')}>
             <div className={cx('info-meal')}>
-                <h3>{dataAPI.strMeal}</h3>
-                <img className={cx('meal-image')} src={dataAPI.strMealThumb} alt="" />
+                <h3 className={cx('animate__animated animate__rubberBand', 'name-meal')}>
+                    {dataAPI.strMeal}
+                </h3>
+                <img
+                    className={cx('meal-image', 'animate__animated animate__zoomIn')}
+                    src={dataAPI.strMealThumb}
+                    alt=""
+                />
             </div>
             <div className={cx('meal-recipe')}>
-                <h3>Công thức nấu ăn</h3>
-                <div className={cx('meal-desc')}>{dataAPI.strInstructions}</div>
-                <h3 className={cx('ingredient')}>Nguyên liệu cần chuẩn bị</h3>
-                <div className={cx('meal-ingredient')}>
+                <h3 className={cx('animate__animated animate__bounceInUp')}>Công thức nấu ăn</h3>
+                <div className={cx('meal-desc', 'animate__animated animate__bounceInDown')}>
+                    {dataAPI.strInstructions}
+                </div>
+                <h3 className={cx('ingredient', 'animate__animated animate__lightSpeedInRight')}>
+                    Nguyên liệu cần chuẩn bị
+                </h3>
+                <div className={cx('meal-ingredient', 'animate__animated animate__bounceInRight')}>
                     {ingredient.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                <p>
-                                    {index + 1}. {item}
-                                </p>
-                            </div>
-                        );
+                        if (item !== null)
+                            return (
+                                <div key={index}>
+                                    <p>
+                                        {index + 1}. {item}
+                                    </p>
+                                </div>
+                            );
                     })}
                 </div>
-                <h3 className={cx('ingredient')}>Gia vị cần chuẩn bị</h3>
-                <div className={cx('meal-ingredient')}>
+                <h3 className={cx('ingredient', 'animate__animated animate__lightSpeedInLeft')}>
+                    Gia vị cần chuẩn bị
+                </h3>
+                <div className={cx('meal-ingredient', 'animate__animated animate__bounceInLeft')}>
                     {spice.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                <p>
-                                    {index + 1}: {item}
-                                </p>
-                            </div>
-                        );
+                        if (item !== null)
+                            return (
+                                <div key={index}>
+                                    <p>
+                                        {index + 1}. {item}
+                                    </p>
+                                </div>
+                            );
                     })}
                 </div>
             </div>

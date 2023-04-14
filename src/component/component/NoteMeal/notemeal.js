@@ -31,7 +31,7 @@ function NoteMeal(props) {
             //         });
             //     };
             // });
-        }, 1000);
+        }, 500);
         closeNoteRef.current.onclick = () => {
             noteMeal.current.style.display = 'none';
         };
