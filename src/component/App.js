@@ -39,26 +39,20 @@ function AppMeals() {
 
     return (
         <BrowserRouter>
-            <>
-                <Header parent={callbackFunction} />
-                <Routes>
-                    {publicRoutes.map((item, index) => {
-                        const Page = item.component;
-                        return (
-                            <Route
-                                key={index}
-                                path={item.path}
-                                element={<Page value={message} />}
-                            />
-                        );
-                    })}
-                </Routes>
+            <Header parent={callbackFunction} />
+            <Routes>
+                {publicRoutes.map((item, index) => {
+                    const Page = item.component;
+                    return (
+                        <Route key={index} path={item.path} element={<Page value={message} />} />
+                    );
+                })}
+            </Routes>
 
-                <div className={cx('icon--return')} ref={iconRef}>
-                    <FontAwesomeIcon icon={faArrowUp} className={cx('up')} />
-                    <FontAwesomeIcon icon={faArrowLeft} className={cx('left')} />
-                </div>
-            </>
+            <div className={cx('icon--return')} ref={iconRef}>
+                <FontAwesomeIcon icon={faArrowUp} className={cx('up')} />
+                <FontAwesomeIcon icon={faArrowLeft} className={cx('left')} />
+            </div>
         </BrowserRouter>
     );
 }

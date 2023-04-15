@@ -1,16 +1,26 @@
 .categories {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 30px;
     font-size: 1.6rem;
 }
-.categories-item {
+.bnt-meal {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .btn-meal-item {
+        margin: 20px;
+        width: 150px;
+    }
+}
+.categorie {
+    display: flex;
+    flex-wrap: wrap;
+}
+.categories-item {
     align-items: center;
     margin-bottom: 20px;
-    margin-left: 10px;
+    margin-left: 35px;
     padding: 20px;
     width: 400px;
     height: 200px;
@@ -18,7 +28,7 @@
     border-top-right-radius: 3.5rem;
     border-bottom-left-radius: 3.5rem;
     transition: all 0.5s linear;
-    
+
     &:hover {
         box-shadow: 0 4px 21px -9px rgba(0, 0, 0, 0.79);
         border-radius: unset;

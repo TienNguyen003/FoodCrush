@@ -24,16 +24,17 @@ function Header({ parent }) {
             setInputValue(debounce);
         };
     }, [debounce]);
+    console.clear(inputValue);
 
     return (
         <div className={cx('header')}>
-            <div className={cx('logo')}>
+            <div className={cx('logo', 'animate__animated animate__swing')}>
                 <img className={cx('img')} src="https://i.imgur.com/aZxY6rG.png" alt="logo" />
                 <Link to={'/'} className={cx('name')}>
                     FoodieCrush
                 </Link>
             </div>
-            <div className={cx('search-meals')}>
+            <div className={cx('search-meals', 'animate__animated animate__wobble')}>
                 <div className={cx('search')}>
                     <input
                         onChange={(e) => setInput(e.target.value)}
