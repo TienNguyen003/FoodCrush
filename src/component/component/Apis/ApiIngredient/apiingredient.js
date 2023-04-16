@@ -25,13 +25,6 @@ function ApiIngredient({ inputText }) {
                     alert('Không tìm thấy nguyên liệu');
                 }
             });
-        fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=list')
-            .then((res) => res.json())
-            .then((data) =>
-                data.meals.map((item) => {
-                    console.log(item.strIngredient);
-                }),
-            );
     }, [inputValue]);
 
     return (

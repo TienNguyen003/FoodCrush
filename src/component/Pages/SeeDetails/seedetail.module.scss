@@ -13,10 +13,19 @@
     justify-content: space-between;
     align-items: center;
 }
+.search-two{
+    display: flex;
+
+    select{
+        outline: none;
+        cursor: pointer;
+    }
+}
 .search {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 20px;
     height: 40px;
     color: #d65108;
     border: 1px solid #d65108;
