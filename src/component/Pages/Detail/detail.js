@@ -74,14 +74,13 @@ function Detail() {
                         )}
                     >
                         {ingredient.map((item, index) => {
-                            if (item !== null)
-                                return (
-                                    <div key={index}>
-                                        <p>
-                                            {index + 1}. {item}
-                                        </p>
-                                    </div>
-                                );
+                            return (
+                                <div key={index}>
+                                    <p>
+                                        {index + 1}. {item}
+                                    </p>
+                                </div>
+                            );
                         })}
                     </div>
                     <h3 className={cx('ingredient', 'animate__animated animate__lightSpeedInLeft')}>
@@ -91,14 +90,13 @@ function Detail() {
                         className={cx('meal-ingredient', 'animate__animated animate__bounceInLeft')}
                     >
                         {spice.map((item, index) => {
-                            if (item !== null)
-                                return (
-                                    <div key={index}>
-                                        <p>
-                                            {index + 1}. {item}
-                                        </p>
-                                    </div>
-                                );
+                            return (
+                                <div key={index}>
+                                    <p>
+                                        {index + 1}. {item}
+                                    </p>
+                                </div>
+                            );
                         })}
                     </div>
                 </div>

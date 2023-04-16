@@ -3,10 +3,11 @@ import { memo, useEffect, useState } from 'react';
 
 import styles from './categorie.module.scss';
 import Button from '~/component/LayOuts/DefaultLayout/Button/button';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Categories({ quantity = 9 }) {
+function Categories({ quantity = 9, displayMore = false }) {
     const [btnCategories, setBtnCategories] = useState([]);
     const [dataCategories, setDataCategories] = useState([]);
 
@@ -34,7 +35,7 @@ function Categories({ quantity = 9 }) {
                 };
             });
         }, 100);
-    }, []);
+    }, [quantity]);
 
     return (
         <div className={cx('categories')}>
@@ -63,6 +64,14 @@ function Categories({ quantity = 9 }) {
                         >
                             <img className={cx('img')} src={item.strMealThumb} alt="" />
                             <p className={cx('name-meal')}>{item.strMeal}</p>
+
+                            {displayMore === true && (
+                                <Link to={`/@${item.idMeal}`}>
+                                    <Button className={cx('btn')} outline rounded>
+                                        See detail
+                                    </Button>
+                                </Link>
+                            )}
                         </div>
                     );
                 })}

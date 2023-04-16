@@ -1,23 +1,8 @@
-.categories {
-    justify-content: space-between;
-    margin-top: 30px;
-    font-size: 1.6rem;
-}
-.bnt-meal {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    .btn-meal-item {
-        margin: 10px 20px;
-        width: 150px;
-    }
-}
-.categorie {
+.ingredient {
     display: flex;
     flex-wrap: wrap;
 }
-.categories-item {
+.ingredient-meals {
     margin: 10px 0 20px 20px;
     padding: 20px;
     overflow: hidden;
@@ -37,14 +22,12 @@
     transition: all 0.5s linear;
 }
 .name-meal {
+    margin-bottom: 5px;
     max-width: 160px;
-    text-align: center;
+    height: 56px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-}
-.btn{
-    margin-top: 10px;
 }
