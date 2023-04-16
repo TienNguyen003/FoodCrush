@@ -1,22 +1,23 @@
 import classNames from 'classnames/bind';
-import { memo, useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import styles from './categorie.module.scss';
 import Button from '~/component/LayOuts/DefaultLayout/Button/button';
 
 const cx = classNames.bind(styles);
 
-function Categories() {
+function Categories({ quantity = 9 }) {
     const [btnCategories, setBtnCategories] = useState([]);
     const [dataCategories, setDataCategories] = useState([]);
 
     useEffect(() => {
-            fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list')
-                .then((res) => res.json())
-                .then((data) => {
-                    setBtnCategories(data.meals);
-                });
+        fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list')
+            .then((res) => res.json())
+            .then((data) => {
+                setBtnCategories(data.meals);
+            });
 
+        setInterval(() => {
             const btnMeal = document.querySelectorAll('.categorie_btn-meal-item__NS6Im');
             btnMeal.forEach((btn) => {
                 btn.onclick = () => {
@@ -28,10 +29,11 @@ function Categories() {
                     fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${btn.innerText}`)
                         .then((res) => res.json())
                         .then((data) => {
-                            setDataCategories(data.meals.slice(0, 9));
+                            setDataCategories(data.meals.slice(0, quantity));
                         });
                 };
             });
+        }, 100);
     }, []);
 
     return (

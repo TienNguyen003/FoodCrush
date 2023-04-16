@@ -35,3 +35,16 @@ blockquote {
     margin: 40px 0;
     font-size: 2.4rem;
 }
+.uses-cate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.see-detail{
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    &:hover{
+        color: #fe2c55;
+    }
+}

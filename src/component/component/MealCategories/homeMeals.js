@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import Categories from '../Apis/ApiCategories/categorie';
 import styles from './homeMeals.module.scss';
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -34,7 +35,17 @@ function HomeMeals() {
                 </div>
             </div>
             <div className={cx('categories')}>
-                <h3 className={cx('meal categories')}>Meal categories</h3>
+                <div className={cx('uses-cate')}>
+                    <h3 className={cx('meal categories', 'animate__animated animate__backInLeft')}>
+                        Meal categories
+                    </h3>
+                    <Link
+                        to={'/details'}
+                        className={cx('see-detail', 'animate__animated animate__backInRight')}
+                    >
+                        See details
+                    </Link>
+                </div>
                 <Categories />
             </div>
         </div>
