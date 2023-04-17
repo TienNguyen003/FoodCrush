@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 
@@ -74,6 +75,7 @@ function Detail() {
                         )}
                     >
                         {ingredient.map((item, index) => {
+                            // if (item !== null)
                             return (
                                 <div key={index}>
                                     <p>
@@ -90,13 +92,14 @@ function Detail() {
                         className={cx('meal-ingredient', 'animate__animated animate__bounceInLeft')}
                     >
                         {spice.map((item, index) => {
-                            return (
-                                <div key={index}>
-                                    <p>
-                                        {index + 1}. {item}
-                                    </p>
-                                </div>
-                            );
+                            if (item !== null)
+                                return (
+                                    <div key={index}>
+                                        <p>
+                                            {index + 1}. {item}
+                                        </p>
+                                    </div>
+                                );
                         })}
                     </div>
                 </div>
