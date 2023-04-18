@@ -6,7 +6,7 @@
 }
 
 // logo
-.logo{
+.logo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,17 +28,55 @@
     font-size: 2rem;
 }
 
+.change-web {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 600px;
+}
+// animation blogger
+.blogger {
+    position: relative;
+    width: 60px;
+    height: 50px;
+
+    &:hover .go-blogger {
+        top: 10px;
+        text-decoration: underline;
+        font-size: 1.8rem;
+        opacity: 1;
+    }
+
+    &:hover .pseudo-element {
+        top: 40px;
+        opacity: 0;
+    }
+}
+.go-blogger {
+    position: absolute;
+    top: -30px;
+    font-size: 1.7rem;
+    color: rgba(246, 117, 138, 0.788) !important;
+    transition: all 0.3s linear;
+    opacity: 0;
+}
+.pseudo-element {
+    position: absolute;
+    top: 10px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
 // search
-.search-meals{
+.search-meals {
     width: 500px;
     height: 50px;
 }
-.search{
+.search {
     display: flex;
     align-items: center;
     height: 100%;
 }
-.search-input{
+.search-input {
     padding: 0 10px;
     width: 85%;
     height: 100%;
@@ -48,7 +86,7 @@
     border-top-left-radius: 3rem;
     border-bottom-left-radius: 3rem;
 }
-.icon{
+.icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +99,6 @@
     border-bottom-right-radius: 3rem;
     cursor: pointer;
 }
-.icon-search{
+.icon-search {
     font-size: 1.6rem;
 }

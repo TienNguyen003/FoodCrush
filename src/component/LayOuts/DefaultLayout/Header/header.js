@@ -34,16 +34,24 @@ function Header({ parent }) {
                     FoodieCrush
                 </Link>
             </div>
-            <div className={cx('search-meals', 'animate__animated animate__wobble')}>
-                <div className={cx('search')}>
-                    <input
-                        onChange={(e) => setInput(e.target.value)}
-                        type="text"
-                        className={cx('search-input')}
-                        placeholder="For example: American..."
-                    />
-                    <div className={cx('icon')} ref={buttonRef} onClick={sendData}>
-                        <SearchIcon className={cx('icon-search')} />
+            <div className={cx('change-web')}>
+                <div className={cx('blogger')}>
+                    <Link to={'/blogger'} className={cx('go-blogger')}>
+                        Blogger
+                    </Link>
+                    <p className={cx('pseudo-element')}>Blogger</p>
+                </div>
+                <div className={cx('search-meals', 'animate__animated animate__wobble')}>
+                    <div className={cx('search')}>
+                        <input
+                            onChange={(e) => setInput(e.target.value)}
+                            type="text"
+                            className={cx('search-input')}
+                            placeholder="For example: American..."
+                        />
+                        <div className={cx('icon')} ref={buttonRef} onClick={sendData}>
+                            <SearchIcon className={cx('icon-search')} />
+                        </div>
                     </div>
                 </div>
             </div>
