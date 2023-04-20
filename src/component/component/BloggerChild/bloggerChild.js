@@ -24,7 +24,7 @@ function BloggerChild() {
         <>
             <div id="initial" className={cx('activate')}>
                 <div className={cx('initial-header')}>
-                    <h1>
+                    <h1 className={cx('')}>
                         Tien<span>Nguyen</span>
                     </h1>
                     <p>MY PERSONAL BLOG</p>
