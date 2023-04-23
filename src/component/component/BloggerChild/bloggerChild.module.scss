@@ -1,41 +1,17 @@
 .initial-header {
     display: flex;
-}
-.initial-header h1 {
-    font-weight: 500;
-    color: #222222;
-    font-size: 30px;
-    margin-top: 50px;
-}
-.initial-header p {
-    margin-left: 20px;
-    margin-top: 63px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-/* initial-nav */
-.initial-nav {
-    overflow-x: none;
-    display: flex;
+.title {
+    font-size: 30px;
+    font-weight: 500;
+    background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+    background-clip: text;
+    color: transparent;
 }
-.nav-main {
-    display: flex;
-    float: right;
-    text-decoration: none;
-}
-.nav-main li {
-    height: 20px;
-    list-style: none;
-    margin: 0 10px;
-    margin-top: 63px;
-}
-.nav-main li:hover {
-    cursor: pointer;
-    color: aqua;
-}
-.initial-icon {
-    display: none;
-}
-/* end initial-nav */
 
 /* slider */
 #slider {
@@ -48,4 +24,39 @@
     object-fit: cover;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+// post
+.posts-blogger {
+    margin: 40px 200px;
+}
+.post {
+    margin: 20px 0;
+    width: 700px;
+    border: 1px solid rgb(234, 231, 231);
+    border-radius: 20px;
+}
+.img-content {
+    width: 100%;
+}
+.content-post {
+    padding: 10px 20px;
+}
+
+// user
+.user {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 80px;
+}
+.img-user {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.info-user {
+    margin-left: 20px;
+    width: 90%;
 }

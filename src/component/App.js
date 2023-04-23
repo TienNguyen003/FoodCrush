@@ -44,7 +44,11 @@ function AppMeals() {
                 {publicRoutes.map((item, index) => {
                     const Page = item.component;
                     return (
-                        <Route key={index} path={item.path} element={<Page value={message} />} />
+                        <Route
+                            key={index}
+                            path={item.path}
+                            element={<Page value={message} className={cx('body-content')} />}
+                        />
                     );
                 })}
             </Routes>
