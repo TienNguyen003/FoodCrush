@@ -28,6 +28,8 @@
 
 // post
 .posts-blogger {
+    display: flex;
+    justify-content: space-between;
     margin: 40px 200px;
 }
 .post {
@@ -59,4 +61,12 @@
 .info-user {
     margin-left: 20px;
     width: 90%;
+}
+
+// yourself
+.img-yourself {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
 }

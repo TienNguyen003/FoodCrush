@@ -118,6 +118,16 @@ function BloggerChild() {
                         </p>
                     </div>
                 </div>
+                <div className={cx('introduce-yourself')}>
+                    <div className={cx('yourself')}>
+                        <img
+                            className={cx('img-yourself')}
+                            src="https://i.pinimg.com/564x/e7/13/51/e71351b8438a22fd903921cff702e0ac.jpg"
+                            alt=""
+                        />
+                        <h3 className={cx('name-me')}>𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨</h3>
+                    </div>
+                </div>
             </div>
         </>
     );
