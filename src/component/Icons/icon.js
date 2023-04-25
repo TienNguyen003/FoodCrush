@@ -15,9 +15,10 @@ export const SearchIcon = ({ className, width = '2.3rem', height = '2.3rem' }) =
     </svg>
 );
 
-export const SettingIcon = ({ className, width = '2.3rem', height = '2.3rem' }) => (
+export const SettingIcon = ({ className, width = '2.3rem', height = '2.3rem', onClick }) => (
     <svg
         className={className}
+        onClick={onClick}
         width={width}
         height={height}
         viewBox="0 0 24 24"

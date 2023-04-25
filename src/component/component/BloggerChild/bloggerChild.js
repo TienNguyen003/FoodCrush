@@ -21,8 +21,16 @@ function BloggerChild() {
         }
     }, 5000);
 
+    const handleClickInput = () => {
+        const showClick = document.querySelector('.bloggerChild_show-click__H1K8Q');
+        const all = document.querySelector('body');
+        console.log(all);
+        showClick.style.display = 'block';
+        all.style.height = '500px';
+    };
+
     return (
-        <>
+        <div className={cx('all')}>
             <div id="initial" className={cx('activate')}>
                 <div className={cx('initial-header')}>
                     <h1 className={cx('title')}>
@@ -38,6 +46,17 @@ function BloggerChild() {
             </div>
             <div className={cx('posts-blogger')}>
                 <div className={cx('posts')}>
+                    <div className={cx('more-post')}>
+                        <img
+                            className={cx('more-img')}
+                            src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-cute.jpg"
+                            alt=""
+                        />
+                        <p className={cx('more-input')} onClick={handleClickInput}>
+                            Bạn đang nghĩ gì thế?
+                        </p>
+                    </div>
+
                     <div className={cx('post')}>
                         <div className={cx('user')}>
                             <img
@@ -106,7 +125,7 @@ function BloggerChild() {
                         </div>
                         <img
                             className={cx('img-content')}
-                            src="https://w.wallhaven.cc/full/x1/wallhaven-x155ld.jpg"
+                            src="https://images.squarespace-cdn.com/content/v1/53883795e4b016c956b8d243/1597821998048-538UNQI253SYL3KE9NGD/chup-anh-mon-an-breakfast-10.jpg"
                             alt=""
                         />
                         <p className={cx('content-post')}>
@@ -126,10 +145,52 @@ function BloggerChild() {
                             alt=""
                         />
                         <h3 className={cx('name-me')}>𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨</h3>
+                        <p>
+                            𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨, the name symbolizes strength, courage and the ability
+                            to overcome obstacles
+                        </p>
+                    </div>
+                    <div className={cx('yourself')}>
+                        <img
+                            className={cx('img-yourself')}
+                            src="https://i.pinimg.com/564x/e7/13/51/e71351b8438a22fd903921cff702e0ac.jpg"
+                            alt=""
+                        />
+                        <h3 className={cx('name-me')}>𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨</h3>
+                        <p>
+                            𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨, the name symbolizes strength, courage and the ability
+                            to overcome obstacles
+                        </p>
+                    </div>
+                    <div className={cx('yourself')}>
+                        <img
+                            className={cx('img-yourself')}
+                            src="https://i.pinimg.com/564x/e7/13/51/e71351b8438a22fd903921cff702e0ac.jpg"
+                            alt=""
+                        />
+                        <h3 className={cx('name-me')}>𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨</h3>
+                        <p>
+                            𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨, the name symbolizes strength, courage and the ability
+                            to overcome obstacles
+                        </p>
                     </div>
                 </div>
             </div>
-        </>
+
+            <div className={cx('show-click')}>
+                <div className={cx('overflow')}></div>
+                <div className={cx('click--see__more')}>
+                    <h3 className={cx('title-click')}>Tạo bài viết</h3>
+
+                    <img
+                        className={cx('img-click')}
+                        src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-cute.jpg"
+                        alt=""
+                    />
+                    <p className={cx('name-click')}>𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨</p>
+                </div>
+            </div>
+        </div>
     );
 }
 

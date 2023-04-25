@@ -33,6 +33,32 @@
     margin: 40px 200px;
 }
 .post {
+    margin-top: 20px;
+}
+.more-post {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: 50px;
+    border: 1px solid rgb(234, 231, 231);
+    border-radius: 10px;
+}
+.more-img {
+    width: 40px;
+    border-radius: 50%;
+}
+.more-input {
+    margin: 0 20px;
+    width: 90%;
+    font-size: 1.6rem;
+    cursor: pointer;
+
+    &:hover {
+        color: #8c56ce;
+        font-size: 1.7rem;
+    }
+}
+.post {
     margin: 20px 0;
     width: 700px;
     border: 1px solid rgb(234, 231, 231);
@@ -52,7 +78,8 @@
     padding: 0 20px;
     height: 80px;
 }
-.img-user {
+.img-user,
+.img-click {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -64,9 +91,52 @@
 }
 
 // yourself
+.introduce-yourself {
+    width: 400px;
+}
+.yourself {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid rgb(234, 231, 231);
+    border-radius: 10px;
+}
 .img-yourself {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+//click--see__more
+.all {
+    position: relative;
+}
+.show-click {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+}
+.overflow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 11, 11, 0.8);;
+}
+.click--see__more {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 20px;
+    width: 500px;
+    height: 428px;
+    color: #fff;
+    background-color: #242526;
+    border-radius: 10px;
 }
