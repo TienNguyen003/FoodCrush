@@ -1,28 +1,90 @@
 import classNames from 'classnames/bind';
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { arrImg } from '../../Image/index.js';
 import { SettingIcon } from '~/component/Icons/icon.js';
 import img3 from '../../Image/3.jpg';
 import styles from './bloggerChild.module.scss';
+import Button from '~/component/LayOuts/DefaultLayout/Button/button.js';
 
 const cx = classNames.bind(styles);
 
 function BloggerChild() {
+    const [avatar, setAvatar] = useState();
+
     const imgIm = arrImg;
     let i = 1;
+    let a = 1;
 
     setInterval(() => {
         const img = document.querySelector('.img');
         img.src = imgIm[i++];
         if (i > 7) {
-            console.log(img3);
             img.src = img3;
             i = 1;
         }
     }, 5000);
 
     const handleClickInput = () => {
-        const inputClick = document.querySelector('.bloggerChild_more-input__AtKCK');
+        const postFile = document.querySelector('.bloggerChild_posted-file__8bqUw');
+        const showPost = document.querySelector('.bloggerChild_posted-content__kf2gr');
+        if (a == 1) {
+            showPost.style.display = 'block';
+            a++;
+        } else {
+            showPost.style.display = 'none';
+            a--;
+        }
+        const postImg = document.querySelector('.bloggerChild_icon__in05-');
+
+        postImg.onclick = () => {
+            if (i == 1) {
+                postFile.style.display = 'flex';
+                i++;
+            } else {
+                postFile.style.display = 'none';
+                i--;
+            }
+        };
+    };
+
+    useEffect(() => {
+        return () => {
+            avatar && URL.revokeObjectURL(avatar.preview);
+        };
+    }, [avatar]);
+    const handlePreviewImg = (e) => {
+        const file = e.target.files[0];
+        file.preview = URL.createObjectURL(file);
+        const label = document.getElementsByClassName('bloggerChild_label__+ihGI');
+        label[0].style.display = 'none';
+        setAvatar(file);
+    };
+
+    const handleClickButton = (e) => {
+        const postImg = e.target.parentElement.querySelector('.bloggerChild_img-local__Tpn5-');
+        const textArea = e.target.parentElement.querySelector('.bloggerChild_posted-input__FIawM');
+        let html = `
+        <div class="bloggerChild_user__iQ1FG">
+            <img
+                class="bloggerChild_img-user__FHj+-"
+                src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-cute.jpg"
+                alt=""
+            />
+            <div class="bloggerChild_info-user__JGsrC">
+                <p class="middle-name">𝚅𝚒𝚗𝚌𝚎𝚗𝚣𝚘 𝙻𝚎𝚘𝚗𝚊𝚛𝚍𝚘</p>
+            </div>
+            <SettingIcon />
+        </div>
+        <img
+            class="bloggerChild_img-content__Ioxpc"
+            src=${postImg.src}
+            alt=""
+        />
+        <p class="bloggerChild_content-post__TwMO3">${textArea.value}</p>
+        `;
+        e.target.parentElement.parentElement.querySelector(
+            '.bloggerChild_post-user__U29tC',
+        ).innerHTML = html;
     };
 
     return (
@@ -95,33 +157,6 @@ function BloggerChild() {
                         </p>
                     </div>
 
-                    <div className={cx('post')}>
-                        <div className={cx('user')}>
-                            <img
-                                className={cx('img-user')}
-                                src="https://i.pinimg.com/736x/67/01/90/670190eea21c354c20d4ecb0097bce2a.jpg"
-                                alt=""
-                            />
-                            <div className={cx('info-user')}>
-                                <h3 className={cx('name-user')}>𝐓𝐢𝐞𝐧</h3>
-                                <p className={cx('middle-name')}>𝐓𝐢𝐞𝐧 𝐍𝐠𝐮𝐲𝐞𝐧</p>
-                            </div>
-                            <SettingIcon />
-                        </div>
-                        <img
-                            className={cx('img-content')}
-                            src="https://images.squarespace-cdn.com/content/v1/53883795e4b016c956b8d243/1597821998048-538UNQI253SYL3KE9NGD/chup-anh-mon-an-breakfast-10.jpg"
-                            alt=""
-                        />
-                        <p className={cx('content-post')}>
-                            Ẩm thực cũng là nơi để các thành viên trong gia đình có thể tìm hiểu về
-                            văn hóa ẩm thực của nhau, học hỏi kinh nghiệm nấu nướng và cùng nhau
-                            khám phá những món ăn mới. Vì vậy, hãy dành thời gian để cùng nhau ăn
-                            uống trong gia đình để tăng thêm sự gần gũi và đoàn kết với những người
-                            thân yêu nhất của mình.
-                        </p>
-                    </div>
-
                     <div className={cx('post-user')}></div>
 
                     <div className={cx('more-post')}>
@@ -130,7 +165,7 @@ function BloggerChild() {
                             src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-cute.jpg"
                             alt=""
                         />
-                        <p className={cx('more-input')} onClick={handleClickInput}>
+                        <p className={cx('more-input')} onClick={(e) => handleClickInput(e)}>
                             Bạn đang nghĩ gì thế?
                         </p>
                     </div>
@@ -150,8 +185,23 @@ function BloggerChild() {
                             placeholder="Hãy chia sẻ trải nghiệm của bạn..."
                         />
                         <div className={cx('posted-file')}>
-                            <label htmlFor="input-file">Ok</label>
-                            <input className={cx('posted-file-img')} type="file" id="input-file" />
+                            {avatar && (
+                                <img className={cx('img-local')} src={avatar.preview} alt=""></img>
+                            )}
+                            <label htmlFor="input-file" className={cx('label')}>
+                                <img
+                                    className={cx('more-img-post')}
+                                    src="https://i.imgur.com/765WmFW.png"
+                                    alt=""
+                                />
+                                Thêm ảnh
+                            </label>
+                            <input
+                                className={cx('posted-file-img')}
+                                onChange={handlePreviewImg}
+                                type="file"
+                                id="input-file"
+                            />
                         </div>
                         <div className={cx('add-func')}>
                             <p className={cx('posted-title')}>Thêm vào bài viết của bạn</p>
@@ -160,34 +210,21 @@ function BloggerChild() {
                                 src="https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/a6OjkIIE-R0.png"
                                 alt=""
                             />
+                            <img
+                                className={cx('icon')}
+                                src="https://png.pngtree.com/png-vector/20190307/ourlarge/pngtree-vector-add-user-icon-png-image_762930.jpg"
+                                alt=""
+                            />
                         </div>
+
+                        <button
+                            className={cx('button-up')}
+                            children={'Đăng'}
+                            onClick={(e) => handleClickButton(e)}
+                        />
                     </div>
                 </div>
                 <div className={cx('introduce-yourself')}>
-                    <div className={cx('yourself')}>
-                        <img
-                            className={cx('img-yourself')}
-                            src="https://i.pinimg.com/564x/e7/13/51/e71351b8438a22fd903921cff702e0ac.jpg"
-                            alt=""
-                        />
-                        <h3 className={cx('name-me')}>𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨</h3>
-                        <p>
-                            𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨, the name symbolizes strength, courage and the ability
-                            to overcome obstacles
-                        </p>
-                    </div>
-                    <div className={cx('yourself')}>
-                        <img
-                            className={cx('img-yourself')}
-                            src="https://i.pinimg.com/564x/e7/13/51/e71351b8438a22fd903921cff702e0ac.jpg"
-                            alt=""
-                        />
-                        <h3 className={cx('name-me')}>𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨</h3>
-                        <p>
-                            𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨, the name symbolizes strength, courage and the ability
-                            to overcome obstacles
-                        </p>
-                    </div>
                     <div className={cx('yourself')}>
                         <img
                             className={cx('img-yourself')}
