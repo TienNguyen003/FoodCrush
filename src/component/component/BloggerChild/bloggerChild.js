@@ -22,15 +22,11 @@ function BloggerChild() {
     }, 5000);
 
     const handleClickInput = () => {
-        const showClick = document.querySelector('.bloggerChild_show-click__H1K8Q');
-        const all = document.querySelector('body');
-        console.log(all);
-        showClick.style.display = 'block';
-        all.style.height = '500px';
+        const inputClick = document.querySelector('.bloggerChild_more-input__AtKCK');
     };
 
     return (
-        <div className={cx('all')}>
+        <div>
             <div id="initial" className={cx('activate')}>
                 <div className={cx('initial-header')}>
                     <h1 className={cx('title')}>
@@ -46,17 +42,6 @@ function BloggerChild() {
             </div>
             <div className={cx('posts-blogger')}>
                 <div className={cx('posts')}>
-                    <div className={cx('more-post')}>
-                        <img
-                            className={cx('more-img')}
-                            src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-cute.jpg"
-                            alt=""
-                        />
-                        <p className={cx('more-input')} onClick={handleClickInput}>
-                            Bạn đang nghĩ gì thế?
-                        </p>
-                    </div>
-
                     <div className={cx('post')}>
                         <div className={cx('user')}>
                             <img
@@ -136,6 +121,47 @@ function BloggerChild() {
                             thân yêu nhất của mình.
                         </p>
                     </div>
+
+                    <div className={cx('post-user')}></div>
+
+                    <div className={cx('more-post')}>
+                        <img
+                            className={cx('more-img')}
+                            src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-cute.jpg"
+                            alt=""
+                        />
+                        <p className={cx('more-input')} onClick={handleClickInput}>
+                            Bạn đang nghĩ gì thế?
+                        </p>
+                    </div>
+
+                    <div className={cx('posted-content')}>
+                        <div className={cx('posted-info-user')}>
+                            <img
+                                className={cx('posted-img')}
+                                src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-cute.jpg"
+                                alt=""
+                            />
+                            <p className={cx('posted-name')}>𝚅𝚒𝚗𝚌𝚎𝚗𝚣𝚘 𝙻𝚎𝚘𝚗𝚊𝚛𝚍𝚘</p>
+                        </div>
+                        <textarea
+                            className={cx('posted-input')}
+                            type="text"
+                            placeholder="Hãy chia sẻ trải nghiệm của bạn..."
+                        />
+                        <div className={cx('posted-file')}>
+                            <label htmlFor="input-file">Ok</label>
+                            <input className={cx('posted-file-img')} type="file" id="input-file" />
+                        </div>
+                        <div className={cx('add-func')}>
+                            <p className={cx('posted-title')}>Thêm vào bài viết của bạn</p>
+                            <img
+                                className={cx('icon')}
+                                src="https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/a6OjkIIE-R0.png"
+                                alt=""
+                            />
+                        </div>
+                    </div>
                 </div>
                 <div className={cx('introduce-yourself')}>
                     <div className={cx('yourself')}>
@@ -174,20 +200,6 @@ function BloggerChild() {
                             to overcome obstacles
                         </p>
                     </div>
-                </div>
-            </div>
-
-            <div className={cx('show-click')}>
-                <div className={cx('overflow')}></div>
-                <div className={cx('click--see__more')}>
-                    <h3 className={cx('title-click')}>Tạo bài viết</h3>
-
-                    <img
-                        className={cx('img-click')}
-                        src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-cute.jpg"
-                        alt=""
-                    />
-                    <p className={cx('name-click')}>𝐕𝐢𝐧𝐜𝐞𝐧𝐳𝐨 𝐋𝐞𝐨𝐧𝐚𝐫𝐝𝐨</p>
                 </div>
             </div>
         </div>

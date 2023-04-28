@@ -38,12 +38,14 @@
 .more-post {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
     padding: 0 10px;
     height: 50px;
     border: 1px solid rgb(234, 231, 231);
     border-radius: 10px;
 }
-.more-img {
+.more-img,
+.posted-img {
     width: 40px;
     border-radius: 50%;
 }
@@ -110,33 +112,47 @@
     object-fit: cover;
 }
 
-//click--see__more
-.all {
-    position: relative;
+// posted-info-user
+.posted-content {
+    border: 1px solid rgb(234, 231, 231);
+    border-radius: 10px;
+    padding: 10px;
 }
-.show-click {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+.posted-info-user {
+    display: flex;
+    align-items: center;
+}
+.posted-name{
+    margin-left: 20px;
+}
+.posted-input{
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+    font-size: 1.6rem;
+    outline: none;
+    border: none;
+    resize: none;
+}
+.posted-file{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+    height: 300px;
+}
+.posted-file-img{
     display: none;
 }
-.overflow{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(11, 11, 11, 0.8);;
-}
-.click--see__more {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    padding: 20px;
-    width: 500px;
-    height: 428px;
-    color: #fff;
-    background-color: #242526;
+.add-func{
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border: 1px solid rgb(234, 231, 231);
     border-radius: 10px;
+}
+.icon{
+    margin-left: 30px;
+    width: 25px;
 }
