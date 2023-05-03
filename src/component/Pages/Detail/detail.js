@@ -8,7 +8,6 @@ import styles from './detail.module.scss';
 const cx = classNames.bind(styles);
 
 function Detail() {
-    console.log(123);
     const [dataAPI, setDataAPI] = useState([]);
     const [ingredient, setIngredient] = useState([]);
     const [spice, setSpice] = useState([]);
@@ -41,6 +40,8 @@ function Detail() {
                 }
             });
     }, [newURL]);
+
+    console.log(123);
 
     if (newURL === undefined) {
         return null;
