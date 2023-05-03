@@ -14,8 +14,8 @@ function Detail() {
 
     let currentUrl = window.location.href;
     let newURL;
-    if (currentUrl.includes('http://localhost:3001/FoodCrush/@')) {
-        newURL = currentUrl.replace('http://localhost:3001/FoodCrush/@', '');
+    if (currentUrl.includes('https://tiennguyen003.github.io/FoodCrush/@')) {
+        newURL = currentUrl.replace('https://tiennguyen003.github.io/FoodCrush/@', '');
         newURL = parseInt(newURL);
     }
 
