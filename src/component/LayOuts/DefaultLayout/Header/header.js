@@ -29,7 +29,7 @@ function Header({ parent }) {
         <div className={cx('header')}>
             <div className={cx('logo', 'animate__animated animate__swing')}>
                 <img className={cx('img')} src="https://i.imgur.com/aZxY6rG.png" alt="logo" />
-                <Link to={'/'} className={cx('name')}>
+                <Link to={'/FoodCrush'} className={cx('name')}>
                     FoodieCrush
                 </Link>
             </div>
