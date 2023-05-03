@@ -107,7 +107,7 @@ function BloggerChild() {
                         <div className={cx('user')}>
                             <img
                                 className={cx('img-user')}
-                                src="https://i.pinimg.com/564x/46/12/a0/4612a013b032ca9312c8531b80c5a455.jpg"
+                                src="https://cdn.tgdd.vn/Files/2019/03/07/1153472/chinese-new-year_600x800.jpg"
                                 alt=""
                             />
                             <div className={cx('info-user')}>

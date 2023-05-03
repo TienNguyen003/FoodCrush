@@ -50,7 +50,7 @@ function NoteMeal(props) {
                             <img className={cx('img-meal')} src={item[0].strMealThumb} alt="" />
                             <div className={cx('area')}>
                                 <Link
-                                    to={`FoodCrush/@${item[0].idMeal}`}
+                                    to={`/@${item[0].idMeal}`}
                                     className={cx('name-meal', 'name-detail')}
                                 >
                                     {item[0].strMeal}

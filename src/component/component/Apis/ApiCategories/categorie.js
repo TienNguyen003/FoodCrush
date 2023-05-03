@@ -66,7 +66,7 @@ function Categories({ quantity = 9, displayMore = false }) {
                             <p className={cx('name-meal')}>{item.strMeal}</p>
 
                             {displayMore === true && (
-                                <Link to={`/FoodCrush/@${item.idMeal}`}>
+                                <Link to={`/@${item.idMeal}`}>
                                     <Button className={cx('btn')} outline rounded>
                                         See detail
                                     </Button>
