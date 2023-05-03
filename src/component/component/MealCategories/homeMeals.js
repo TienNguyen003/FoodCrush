@@ -40,7 +40,7 @@ function HomeMeals() {
                         Meal categories
                     </h3>
                     <Link
-                        to={'FoodCrush/details'}
+                        to={'/FoodCrush/details'}
                         className={cx('see-detail', 'animate__animated animate__backInRight')}
                     >
                         See details
