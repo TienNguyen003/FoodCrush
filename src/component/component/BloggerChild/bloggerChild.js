@@ -118,7 +118,7 @@ function BloggerChild() {
                         </div>
                         <img
                             className={cx('img-content')}
-                            src="https://w.wallhaven.cc/full/6o/wallhaven-6ol61l.jpg"
+                            src="https://cdn.tgdd.vn/Files/2019/03/07/1153472/chinese-new-year_600x800.jpg"
                             alt=""
                         />
                         <p className={cx('content-post')}>
