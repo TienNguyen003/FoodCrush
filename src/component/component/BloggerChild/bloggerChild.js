@@ -4,7 +4,6 @@ import { arrImg } from '../../Image/index.js';
 import { SettingIcon } from '~/component/Icons/icon.js';
 import img3 from '../../Image/3.jpg';
 import styles from './bloggerChild.module.scss';
-import Button from '~/component/LayOuts/DefaultLayout/Button/button.js';
 
 const cx = classNames.bind(styles);
 
