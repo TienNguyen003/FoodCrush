@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/FoodCrush/static/css/main.45f48b93.css",
-    "main.js": "/FoodCrush/static/js/main.911e69e7.js",
-    "static/media/6.jpg": "/FoodCrush/static/media/6.b12ba8a29b29ea370611.jpg",
-    "static/media/8.jpg": "/FoodCrush/static/media/8.392ed5898a5fac9a5d45.jpg",
-    "static/media/9.jpg": "/FoodCrush/static/media/9.caec32da557f5a53320c.jpg",
-    "static/media/3.jpg": "/FoodCrush/static/media/3.13d51e6cea0f1367f63c.jpg",
-    "static/media/7.jpg": "/FoodCrush/static/media/7.511a0aad09507e37a098.jpg",
-    "static/media/5.jpg": "/FoodCrush/static/media/5.0e6f16cfc4502840651f.jpg",
-    "static/media/4.jpg": "/FoodCrush/static/media/4.ca586899a295e5a9ee2c.jpg",
-    "static/media/1.jpg": "/FoodCrush/static/media/1.3e52ba6e0ff2b1420a4c.jpg",
-    "static/media/2.jpg": "/FoodCrush/static/media/2.381d440a8119dd0e8647.jpg",
-    "static/media/Jamie-Oliver.jpg": "/FoodCrush/static/media/Jamie-Oliver.c2df1ea8ffc2519b7591.jpg",
-    "index.html": "/FoodCrush/index.html",
-    "main.45f48b93.css.map": "/FoodCrush/static/css/main.45f48b93.css.map",
-    "main.911e69e7.js.map": "/FoodCrush/static/js/main.911e69e7.js.map"
+    "main.css": "/static/css/main.49e2d36d.css",
+    "main.js": "/static/js/main.1de80ad9.js",
+    "static/media/6.jpg": "/static/media/6.b12ba8a29b29ea370611.jpg",
+    "static/media/8.jpg": "/static/media/8.392ed5898a5fac9a5d45.jpg",
+    "static/media/9.jpg": "/static/media/9.caec32da557f5a53320c.jpg",
+    "static/media/3.jpg": "/static/media/3.13d51e6cea0f1367f63c.jpg",
+    "static/media/7.jpg": "/static/media/7.511a0aad09507e37a098.jpg",
+    "static/media/5.jpg": "/static/media/5.0e6f16cfc4502840651f.jpg",
+    "static/media/4.jpg": "/static/media/4.ca586899a295e5a9ee2c.jpg",
+    "static/media/1.jpg": "/static/media/1.3e52ba6e0ff2b1420a4c.jpg",
+    "static/media/2.jpg": "/static/media/2.381d440a8119dd0e8647.jpg",
+    "static/media/Jamie-Oliver.jpg": "/static/media/Jamie-Oliver.c2df1ea8ffc2519b7591.jpg",
+    "index.html": "/index.html",
+    "main.49e2d36d.css.map": "/static/css/main.49e2d36d.css.map",
+    "main.1de80ad9.js.map": "/static/js/main.1de80ad9.js.map"
   },
   "entrypoints": [
-    "static/css/main.45f48b93.css",
-    "static/js/main.911e69e7.js"
+    "static/css/main.49e2d36d.css",
+    "static/js/main.1de80ad9.js"
   ]
 }
