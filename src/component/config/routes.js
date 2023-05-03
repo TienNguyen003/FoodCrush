@@ -1,5 +1,5 @@
 const routes = {
-    Home: '/',
+    Home: '/Home',
     Detail: '/:nickname',
     SeeDetails: '/details',
     Blogger: '/blogger',
