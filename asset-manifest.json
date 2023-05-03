@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/FoodCrush/static/css/main.45f48b93.css",
-    "main.js": "/FoodCrush/static/js/main.94fbca3a.js",
+    "main.js": "/FoodCrush/static/js/main.e2747a27.js",
     "static/media/6.jpg": "/FoodCrush/static/media/6.b12ba8a29b29ea370611.jpg",
     "static/media/8.jpg": "/FoodCrush/static/media/8.392ed5898a5fac9a5d45.jpg",
     "static/media/9.jpg": "/FoodCrush/static/media/9.caec32da557f5a53320c.jpg",
@@ -14,10 +14,10 @@
     "static/media/Jamie-Oliver.jpg": "/FoodCrush/static/media/Jamie-Oliver.c2df1ea8ffc2519b7591.jpg",
     "index.html": "/FoodCrush/index.html",
     "main.45f48b93.css.map": "/FoodCrush/static/css/main.45f48b93.css.map",
-    "main.94fbca3a.js.map": "/FoodCrush/static/js/main.94fbca3a.js.map"
+    "main.e2747a27.js.map": "/FoodCrush/static/js/main.e2747a27.js.map"
   },
   "entrypoints": [
     "static/css/main.45f48b93.css",
-    "static/js/main.94fbca3a.js"
+    "static/js/main.e2747a27.js"
   ]
 }
