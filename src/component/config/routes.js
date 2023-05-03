@@ -1,8 +1,8 @@
 const routes = {
-    Home: '/Home',
-    Detail: '/:nickname',
-    SeeDetails: '/details',
-    Blogger: '/blogger',
+    Home: '/FoodCrush/Home',
+    Detail: '/FoodCrush/:nickname',
+    SeeDetails: '/FoodCrush/details',
+    Blogger: '/FoodCrush/blogger',
 };
 
 export default routes;
