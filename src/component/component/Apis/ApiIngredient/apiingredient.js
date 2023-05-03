@@ -37,7 +37,7 @@ function ApiIngredient({ inputText }) {
                     >
                         <img className={cx('img')} src={item.strMealThumb} alt="" />
                         <h3 className={cx('name-meal')}>{item.strMeal}</h3>
-                        <Link to={`FoodCrush/@${item.idMeal}`}>
+                        <Link to={`/@${item.idMeal}`}>
                             <Button outline rounded small>
                                 Details
                             </Button>
