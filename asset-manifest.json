@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/WeatherMe/static/css/main.cf78af83.css",
-    "main.js": "/WeatherMe/static/js/main.4ac12925.js",
-    "static/media/6.jpg": "/WeatherMe/static/media/6.b12ba8a29b29ea370611.jpg",
-    "static/media/8.jpg": "/WeatherMe/static/media/8.392ed5898a5fac9a5d45.jpg",
-    "static/media/9.jpg": "/WeatherMe/static/media/9.caec32da557f5a53320c.jpg",
-    "static/media/3.jpg": "/WeatherMe/static/media/3.13d51e6cea0f1367f63c.jpg",
-    "static/media/7.jpg": "/WeatherMe/static/media/7.511a0aad09507e37a098.jpg",
-    "static/media/5.jpg": "/WeatherMe/static/media/5.0e6f16cfc4502840651f.jpg",
-    "static/media/4.jpg": "/WeatherMe/static/media/4.ca586899a295e5a9ee2c.jpg",
-    "static/media/1.jpg": "/WeatherMe/static/media/1.3e52ba6e0ff2b1420a4c.jpg",
-    "static/media/2.jpg": "/WeatherMe/static/media/2.381d440a8119dd0e8647.jpg",
-    "static/media/Jamie-Oliver.jpg": "/WeatherMe/static/media/Jamie-Oliver.c2df1ea8ffc2519b7591.jpg",
-    "index.html": "/WeatherMe/index.html",
-    "main.cf78af83.css.map": "/WeatherMe/static/css/main.cf78af83.css.map",
-    "main.4ac12925.js.map": "/WeatherMe/static/js/main.4ac12925.js.map"
+    "main.css": "/WeatherMe/Home/static/css/main.0d108cc3.css",
+    "main.js": "/WeatherMe/Home/static/js/main.151c5296.js",
+    "static/media/6.jpg": "/WeatherMe/Home/static/media/6.b12ba8a29b29ea370611.jpg",
+    "static/media/8.jpg": "/WeatherMe/Home/static/media/8.392ed5898a5fac9a5d45.jpg",
+    "static/media/9.jpg": "/WeatherMe/Home/static/media/9.caec32da557f5a53320c.jpg",
+    "static/media/3.jpg": "/WeatherMe/Home/static/media/3.13d51e6cea0f1367f63c.jpg",
+    "static/media/7.jpg": "/WeatherMe/Home/static/media/7.511a0aad09507e37a098.jpg",
+    "static/media/5.jpg": "/WeatherMe/Home/static/media/5.0e6f16cfc4502840651f.jpg",
+    "static/media/4.jpg": "/WeatherMe/Home/static/media/4.ca586899a295e5a9ee2c.jpg",
+    "static/media/1.jpg": "/WeatherMe/Home/static/media/1.3e52ba6e0ff2b1420a4c.jpg",
+    "static/media/2.jpg": "/WeatherMe/Home/static/media/2.381d440a8119dd0e8647.jpg",
+    "static/media/Jamie-Oliver.jpg": "/WeatherMe/Home/static/media/Jamie-Oliver.c2df1ea8ffc2519b7591.jpg",
+    "index.html": "/WeatherMe/Home/index.html",
+    "main.0d108cc3.css.map": "/WeatherMe/Home/static/css/main.0d108cc3.css.map",
+    "main.151c5296.js.map": "/WeatherMe/Home/static/js/main.151c5296.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf78af83.css",
-    "static/js/main.4ac12925.js"
+    "static/css/main.0d108cc3.css",
+    "static/js/main.151c5296.js"
   ]
 }
