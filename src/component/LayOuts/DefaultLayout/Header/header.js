@@ -35,7 +35,7 @@ function Header({ parent }) {
             </div>
             <div className={cx('change-web')}>
                 <div className={cx('blogger')}>
-                    <Link to={'/blogger'} className={cx('go-blogger')}>
+                    <Link to={'/FoodCrush/blogger'} className={cx('go-blogger')}>
                         Blogger
                     </Link>
                     <p className={cx('pseudo-element')}>Blogger</p>
