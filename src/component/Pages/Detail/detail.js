@@ -41,8 +41,6 @@ function Detail() {
             });
     }, [newURL]);
 
-    console.log(123);
-
     if (newURL === undefined) {
         return null;
     } else {
