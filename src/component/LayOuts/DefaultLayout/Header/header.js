@@ -24,7 +24,6 @@ function Header({ parent }) {
             setInputValue(debounce);
         };
     }, [debounce]);
-    console.clear(inputValue);
 
     return (
         <div className={cx('header')}>

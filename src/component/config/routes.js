@@ -1,5 +1,5 @@
 const routes = {
-    Home: 'FoodCrush/Home',
+    Home: '/',
     Detail: '/:nickname',
     SeeDetails: '/details',
     Blogger: '/blogger',
